@@ -1,0 +1,44 @@
+{
+  "policies": {
+    "AppAutoUpdate": false,
+    "BackgroundAppUpdate": false,
+    "BlockAboutSupport": true,
+    "DisableAppUpdate": true,
+    "DisableFeedbackCommands": true,
+    "DisableFirefoxAccounts": true,
+    "DisableFirefoxStudies": true,
+    "DisablePocket": true,
+    "DisableSetDesktopBackground": true,
+    "DisableTelemetry": true,
+    "DontCheckDefaultBrowser": true,
+    "FirefoxHome": {
+      "Search": false,
+      "TopSites": false,
+      "SponsoredTopSites": false,
+      "Highlights": false,
+      "Pocket": false,
+      "SponsoredPocket": false,
+      "Snippets": false,
+      "Locked": false
+    },
+    "Homepage": {
+      "URL": "https://lite.duckduckgo.com",
+      "Locked": false,
+      "StartPage": "none"
+    },
+    "ManualAppUpdateOnly": true,
+    "OfferToSaveLogins": false,
+    "OverrideFirstRunPage": "",
+    "OverridePostUpdatePage": "",
+    "PasswordManagerEnabled": false,
+    "ShowHomeButton": false,
+    "UserMessaging": {
+      "WhatsNew": false,
+      "ExtensionRecommendations": false,
+      "FeatureRecommendations": false,
+      "UrlbarInterventions": false,
+      "SkipOnboarding": true,
+      "MoreFromMozilla": false
+    }
+  }
+}
