@@ -1,0 +1,69 @@
+name: Update venera configs
+
+on:
+  schedule:
+    - cron: "5 5 * * 2"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure git identity
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Download index.json with validation and retry
+        run: |
+          set -e
+
+          URL="https://git.nyne.dev/nyne/venera-configs/raw/branch/main/index.json"
+          TARGET="venera/index.json"
+          MAX_RETRY=5
+          RETRY=1
+
+          mkdir -p venera
+
+          while [ $RETRY -le $MAX_RETRY ]; do
+            echo "Download attempt $RETRY / $MAX_RETRY"
+
+            if curl -fsSL "$URL" -o "$TARGET"; then
+              if jq empty "$TARGET" >/dev/null 2>&1; then
+                echo "JSON validation succeeded"
+                break
+              else
+                echo "JSON validation failed"
+              fi
+            else
+              echo "Download failed"
+            fi
+
+            rm -f "$TARGET"
+            RETRY=$((RETRY + 1))
+            sleep 5
+          done
+
+          if [ ! -f "$TARGET" ]; then
+            echo "Failed to download valid JSON after $MAX_RETRY attempts"
+            exit 1
+          fi
+
+      - name: Replace fileName with url
+        run: |
+          sed -i \
+            's#fileName": "#url": "https://raw.githubusercontent.com/venera-app/venera-configs/refs/heads/main/#g' \
+            venera/index.json
+
+      - name: Commit and force push to release branch
+        run: |
+          git checkout -B release
+          git add venera/index.json
+          git commit -m "chore: update venera index.json" || echo "No changes"
+          git push origin release --force

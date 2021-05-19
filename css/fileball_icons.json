@@ -1,0 +1,18 @@
+{
+  "name": "fileball icons",
+  "description": "by kosette",
+  "icons": [
+    {
+      "name": "Aliyundrive",
+      "url": "https://github.com/Kosette/Gustavia/raw/main/iconia/emby/aliyundrive.png"
+    },
+    {
+      "name": "MisakaF",
+      "url": "https://github.com/Kosette/Gustavia/raw/main/iconia/emby/misakaf.png"
+    },
+    {
+      "name": "Pilipili",
+      "url": "https://github.com/Kosette/Gustavia/raw/main/iconia/emby/pilipili.jpg"
+    }
+  ]
+}
