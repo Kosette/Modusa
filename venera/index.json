@@ -33,14 +33,14 @@
     "name": "紳士漫畫",
     "url": "https://raw.githubusercontent.com/venera-app/venera-configs/refs/heads/main/wnacg.js",
     "key": "wnacg",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "紳士漫畫漫畫源, 不能使用時請嘗試更換URL"
   },
   {
     "name": "ehentai",
     "url": "https://raw.githubusercontent.com/venera-app/venera-configs/refs/heads/main/ehentai.js",
     "key": "ehentai",
-    "version": "1.1.7"
+    "version": "1.1.8"
   },
   {
     "name": "禁漫天堂",
@@ -132,7 +132,7 @@
     "name": "CCC追漫台",
     "url": "https://raw.githubusercontent.com/venera-app/venera-configs/refs/heads/main/ccc.js",
     "key": "ccc",
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   {
     "name": "GoDa漫画",
@@ -150,6 +150,12 @@
     "name": "漫小肆",
     "url": "https://raw.githubusercontent.com/venera-app/venera-configs/refs/heads/main/mxs.js",
     "key": "mxs",
+    "version": "1.0.0"
+  },
+  {
+    "name": "漫画人",
+    "url": "https://raw.githubusercontent.com/venera-app/venera-configs/refs/heads/main/manhuaren.js",
+    "key": "manhuaren",
     "version": "1.0.0"
   }
 ]
