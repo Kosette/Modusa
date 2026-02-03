@@ -25,6 +25,7 @@ jobs:
           set -e
 
           URL="https://git.nyne.dev/nyne/venera-configs/raw/branch/main/index.json"
+          UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
           TARGET="venera/index.json"
           MAX_RETRY=5
           RETRY=1
@@ -34,7 +35,7 @@ jobs:
           while [ $RETRY -le $MAX_RETRY ]; do
             echo "Download attempt $RETRY / $MAX_RETRY"
 
-            if curl -fsSL "$URL" -o "$TARGET"; then
+            if curl -fsSL "$URL" -o "$TARGET" -A "$UA"; then
               if jq empty "$TARGET" >/dev/null 2>&1; then
                 echo "JSON validation succeeded"
                 break
