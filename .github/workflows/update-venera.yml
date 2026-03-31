@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -24,7 +24,7 @@ jobs:
         run: |
           set -e
 
-          URL="https://git.nyne.dev/nyne/venera-configs/raw/branch/main/index.json"
+          URL="https://cdn.jsdelivr.net/gh/venera-app/venera-configs@main/index.json"
           UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
           TARGET="venera/index.json"
           MAX_RETRY=5
